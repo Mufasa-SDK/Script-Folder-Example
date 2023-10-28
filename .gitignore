@@ -1,0 +1,14 @@
+# Ignore .gradle folder
+.gradle/
+
+# Ignore .idea folder
+.idea/
+
+# Ignore build folder
+build/
+
+# Ignore gradlew script (Unix-like)
+gradlew
+
+# Ignore gradlew.bat script (Windows)
+gradlew.bat
