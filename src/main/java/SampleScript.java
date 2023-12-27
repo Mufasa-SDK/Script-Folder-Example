@@ -4,30 +4,69 @@ import helpers.utils.OptionType;
 import java.util.Map;
 
 @ScriptManifest(
-        name = "MufasaSampleScript",
-        description = "A sample script for demonstration purposes",
-        version = "1.0",
-        category = ScriptCategory.Woodcutting
+        name = "SampleScript",
+        description = "Sample script description",
+        version = "1.01",
+        category = ScriptCategory.Fletching
 )
 @ScriptConfiguration.List(
         {
+                // Example config with a selection dropdown
                 @ScriptConfiguration(
-                        name =  "Test configuration",
-                        description = "Which test would you like to run?",
-                        defaultValue = "Test1",
+                        name =  "Method",
+                        description = "Which operation would you like to perform?",
+                        defaultValue = "Cut",
                         allowedValues = {
-                                "Test1", "Test2", "Test3"
+                                @AllowedValue(optionName = "Cut"),
+                                @AllowedValue(optionName = "String")
                         },
                         optionType = OptionType.STRING
                 ),
                 @ScriptConfiguration(
-                        name =  "Another configuration",
-                        description = "Choose another configuration",
-                        defaultValue = "OptionA",
+                // Example config with a selection dropdown that includes item images (based on itemID)
+                        name =  "Tier",
+                        description = "Which tier of logs/bows would you like to use?",
+                        defaultValue = "Maple logs",
                         allowedValues = {
-                                "OptionA", "OptionB", "OptionC"
+                                @AllowedValue(optionIcon = "1511", optionName = "Logs"),
+                                @AllowedValue(optionIcon = "1521", optionName = "Oak logs"),
+                                @AllowedValue(optionIcon = "1519", optionName = "Willow logs"),
+                                @AllowedValue(optionIcon = "1517", optionName = "Maple logs"),
+                                @AllowedValue(optionIcon = "1515", optionName = "Yew logs"),
+                                @AllowedValue(optionIcon = "1513", optionName = "Magic logs")
                         },
                         optionType = OptionType.STRING
+                ),
+                // Example config with a selection dropdown
+                @ScriptConfiguration(
+                        name =  "Product",
+                        description = "Would you like to make short or longbows?",
+                        defaultValue = "Longbow",
+                        allowedValues = {
+                                @AllowedValue(optionName = "Shortbow"),
+                                @AllowedValue(optionName = "Longbow")
+                        },
+                        optionType = OptionType.STRING
+                ),
+                // Example config with integer options (spinner)
+                @ScriptConfiguration(
+                        name =  "BankTab",
+                        description = "What bank tab are your resources located in?",
+                        defaultValue = "0",
+                        minMaxIntValues = {0, 9},
+                        allowedValues = {
+                                @AllowedValue(optionName = "0"),
+                                @AllowedValue(optionName = "1"),
+                                @AllowedValue(optionName = "2"),
+                                @AllowedValue(optionName = "3"),
+                                @AllowedValue(optionName = "4"),
+                                @AllowedValue(optionName = "5"),
+                                @AllowedValue(optionName = "6"),
+                                @AllowedValue(optionName = "7"),
+                                @AllowedValue(optionName = "8"),
+                                @AllowedValue(optionName = "9"),
+                        },
+                        optionType = OptionType.INTEGER
                 )
         }
 )
