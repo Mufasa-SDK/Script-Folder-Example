@@ -53,8 +53,8 @@ import static helpers.Interfaces.logger;
                 ),
                 // Example config with integer options (spinner)
                 @ScriptConfiguration(
-                        name =  "BankTab",
-                        description = "What bank tab are your resources located in?",
+                        name =  "Some integer option",
+                        description = "Some integer option description",
                         defaultValue = "0",
                         minMaxIntValues = {0, 9},
                         allowedValues = {
@@ -74,7 +74,7 @@ import static helpers.Interfaces.logger;
                 // Example config for bank tabs
                 @ScriptConfiguration(
                         name =  "BankTab",
-                        description = "What bank tab are your resources located in?",
+                        description = "What bank tab is your resources located in?",
                         defaultValue = "0",
                         optionType = OptionType.BANK
                 )
@@ -84,6 +84,7 @@ import static helpers.Interfaces.logger;
 public class SampleScript extends AbstractScript {
     String chosenTest; //Lets save the 1st config value
     String anotherConfig; //Lets save the 2nd config value
+    String selectedBankTab;
 
     @Override
     public void onStart(){
