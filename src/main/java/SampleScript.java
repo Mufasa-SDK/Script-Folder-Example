@@ -76,7 +76,7 @@ import static helpers.Interfaces.logger;
                         name =  "BankTab",
                         description = "What bank tab is your resources located in?",
                         defaultValue = "0",
-                        optionType = OptionType.BANK
+                        optionType = OptionType.BANKTABS
                 )
         }
 )
