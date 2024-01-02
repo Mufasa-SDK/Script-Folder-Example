@@ -3,6 +3,8 @@ import helpers.utils.OptionType;
 
 import java.util.Map;
 
+import static helpers.Interfaces.*;
+
 @ScriptManifest(
         name = "SampleScript",
         description = "Sample script description",
