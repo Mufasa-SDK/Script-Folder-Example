@@ -3,6 +3,9 @@ import helpers.utils.OptionType;
 
 import java.util.Map;
 
+import static helpers.Interfaces.condition;
+import static helpers.Interfaces.logger;
+
 @ScriptManifest(
         name = "SampleScript",
         description = "Sample script description",
@@ -67,6 +70,13 @@ import java.util.Map;
                                 @AllowedValue(optionName = "9"),
                         },
                         optionType = OptionType.INTEGER
+                ),
+                // Example config for bank tabs
+                @ScriptConfiguration(
+                        name =  "BankTab",
+                        description = "What bank tab are your resources located in?",
+                        defaultValue = "0",
+                        optionType = OptionType.BANK
                 )
         }
 )
