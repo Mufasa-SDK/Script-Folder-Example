@@ -89,13 +89,15 @@ public class SampleScript extends AbstractScript {
     @Override
     public void onStart(){
         Map<String, String> configs = getConfigurations(); //Get the script configuration
-        chosenTest = configs.get("Test configuration"); //Set this value to the 'chosenTest' string
-        anotherConfig = configs.get("Another configuration"); //Get the value from the 2nd configuration option
+        chosenTest = configs.get("Method"); // Example to get value of the first option
+        anotherConfig = configs.get("Tier"); // Example to get the second option
+        selectedBankTab = configs.get("BankTab"); // Get the bankTab value from the last configuration option
 
         //Logs for debugging purposes
         logger.log("We are starting the sample script and running onStart()");
         logger.log("Test configuration set to: " + chosenTest);
         logger.log("2nd config value set to: " + anotherConfig);
+        logger.log("Selected bank tab set to: " + selectedBankTab);
         System.out.println("Starting the SampleScript!");
     }
 
