@@ -77,6 +77,13 @@ import static helpers.Interfaces.logger;
                         description = "What bank tab is your resources located in?",
                         defaultValue = "0",
                         optionType = OptionType.BANKTABS
+                ),
+                // Example config percentage
+                @ScriptConfiguration(
+                        name =  "Percentage",
+                        description = "What percentage would you like to do some action at?",
+                        defaultValue = "40",
+                        optionType = OptionType.PERCENTAGE
                 )
         }
 )
@@ -85,6 +92,7 @@ public class SampleScript extends AbstractScript {
     String chosenTest; //Lets save the 1st config value
     String anotherConfig; //Lets save the 2nd config value
     String selectedBankTab;
+    String percentage;
 
     @Override
     public void onStart(){
@@ -92,20 +100,20 @@ public class SampleScript extends AbstractScript {
         chosenTest = configs.get("Method"); // Example to get value of the first option
         anotherConfig = configs.get("Tier"); // Example to get the second option
         selectedBankTab = configs.get("BankTab"); // Get the bankTab value from the last configuration option
+        percentage = configs.get("Percentage");
 
         //Logs for debugging purposes
         logger.log("We are starting the sample script and running onStart()");
         logger.log("Test configuration set to: " + chosenTest);
         logger.log("2nd config value set to: " + anotherConfig);
         logger.log("Selected bank tab set to: " + selectedBankTab);
-        System.out.println("Starting the SampleScript!");
+        logger.log("Percentage value set to: " + percentage);
     }
 
     @Override
     public void poll() {
         logger.log("We are looping the poll() method!");
         condition.sleep(5000);
-        System.out.println("Executing main logic of the SampleScript!");
         // Main logic for the script
     }
 }
