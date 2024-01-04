@@ -3,8 +3,8 @@ import helpers.utils.OptionType;
 
 import java.util.Map;
 
-import static helpers.Interfaces.condition;
-import static helpers.Interfaces.logger;
+import static helpers.Interfaces.Condition;
+import static helpers.Interfaces.Logger;
 
 @ScriptManifest(
         name = "SampleScript",
@@ -103,17 +103,17 @@ public class SampleScript extends AbstractScript {
         percentage = configs.get("Percentage");
 
         //Logs for debugging purposes
-        logger.log("We are starting the sample script and running onStart()");
-        logger.log("Test configuration set to: " + chosenTest);
-        logger.log("2nd config value set to: " + anotherConfig);
-        logger.log("Selected bank tab set to: " + selectedBankTab);
-        logger.log("Percentage value set to: " + percentage);
+        Logger.log("We are starting the sample script and running onStart()");
+        Logger.log("Test configuration set to: " + chosenTest);
+        Logger.log("2nd config value set to: " + anotherConfig);
+        Logger.log("Selected bank tab set to: " + selectedBankTab);
+        Logger.log("Percentage value set to: " + percentage);
     }
 
     @Override
     public void poll() {
-        logger.log("We are looping the poll() method!");
-        condition.sleep(5000);
+        Logger.log("We are looping the poll() method!");
+        Condition.sleep(5000);
         // Main logic for the script
     }
 }
