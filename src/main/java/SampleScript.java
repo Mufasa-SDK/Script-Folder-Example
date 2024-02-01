@@ -89,6 +89,9 @@ public class SampleScript extends AbstractScript {
     String anotherConfig; //Lets save the 2nd config value
     String selectedBankTab;
     String percentage;
+    Boolean hopEnabled;
+    Boolean useWDH;
+    String hopProfile;
 
     @Override
     public void onStart(){
@@ -97,6 +100,12 @@ public class SampleScript extends AbstractScript {
         anotherConfig = configs.get("Tier"); // Example to get the second option
         selectedBankTab = configs.get("BankTab"); // Get the bankTab value from the last configuration option
         percentage = configs.get("Percentage");
+
+        // Example to get worldhopper settings:
+        hopProfile = configs.get("Use world hopper?");
+        hopEnabled = Boolean.valueOf((configs.get("Use world hopper?.enabled")));
+        useWDH = Boolean.valueOf(configs.get("Use world hopper?.useWDH"));
+
 
         //Logs for debugging purposes
         Logger.log("We are starting the sample script and running onStart()");
