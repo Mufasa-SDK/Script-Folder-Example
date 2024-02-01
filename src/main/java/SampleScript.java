@@ -10,7 +10,8 @@ import static helpers.Interfaces.Logger;
         name = "SampleScript",
         description = "Sample script description",
         version = "1.01",
-        category = ScriptCategory.Fletching
+        guideLink = "",
+        categories = {ScriptCategory.Fletching, ScriptCategory.Agility}
 )
 @ScriptConfiguration.List(
         {
