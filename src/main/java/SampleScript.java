@@ -57,18 +57,6 @@ import static helpers.Interfaces.Logger;
                         description = "Some integer option description",
                         defaultValue = "0",
                         minMaxIntValues = {0, 9},
-                        allowedValues = {
-                                @AllowedValue(optionName = "0"),
-                                @AllowedValue(optionName = "1"),
-                                @AllowedValue(optionName = "2"),
-                                @AllowedValue(optionName = "3"),
-                                @AllowedValue(optionName = "4"),
-                                @AllowedValue(optionName = "5"),
-                                @AllowedValue(optionName = "6"),
-                                @AllowedValue(optionName = "7"),
-                                @AllowedValue(optionName = "8"),
-                                @AllowedValue(optionName = "9"),
-                        },
                         optionType = OptionType.INTEGER
                 ),
                 // Example config for bank tabs
