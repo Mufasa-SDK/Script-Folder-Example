@@ -73,6 +73,13 @@ import static helpers.Interfaces.Logger;
                         description = "What percentage would you like to do some action at?",
                         defaultValue = "40",
                         optionType = OptionType.PERCENTAGE
+                ),
+                // Example of worldhopper config
+                @ScriptConfiguration(
+                        name =  "Use world hopper?",
+                        description = "Would you like to hop worlds based on your hop profile settings?",
+                        defaultValue = "1",
+                        optionType = OptionType.WORLDHOPPER
                 )
         }
 )
