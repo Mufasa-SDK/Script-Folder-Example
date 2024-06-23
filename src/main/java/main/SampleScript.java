@@ -1,6 +1,15 @@
-import helpers.*;
-import helpers.utils.OptionType;
+package main;
 
+import Tasks.SampleTask;
+import helpers.*;
+import helpers.annotations.AllowedValue;
+import helpers.annotations.ScriptConfiguration;
+import helpers.annotations.ScriptManifest;
+import helpers.utils.OptionType;
+import utils.Task;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import static helpers.Interfaces.Condition;
@@ -115,10 +124,23 @@ public class SampleScript extends AbstractScript {
         Logger.log("Percentage value set to: " + percentage);
     }
 
+    // Task list!
+    List<Task> sampleTasks = Arrays.asList(
+            new SampleTask()
+    );
+
     @Override
     public void poll() {
+        //Run tasks
+        for (Task task : sampleTasks) {
+            if (task.activate()) {
+                task.execute();
+                return;
+            }
+        }
+
+        // Just an example, make sure to remove this ;)
         Logger.log("We are looping the poll() method!");
         Condition.sleep(5000);
-        // Main logic for the script
     }
 }
