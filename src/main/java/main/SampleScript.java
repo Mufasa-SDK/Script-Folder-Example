@@ -87,7 +87,7 @@ import static helpers.Interfaces.Logger;
                 @ScriptConfiguration(
                         name =  "Use world hopper?",
                         description = "Would you like to hop worlds based on your hop profile settings?",
-                        defaultValue = "1",
+                        defaultValue = "false",
                         optionType = OptionType.WORLDHOPPER
                 )
         }
