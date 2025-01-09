@@ -23,21 +23,40 @@ import static helpers.Interfaces.Logger;
         guideLink = "",
         categories = {ScriptCategory.Fletching, ScriptCategory.Agility}
 )
-@ScriptTabConfiguration( // This is an example of doing a Tab configuration.
-        name = "Test",
-        configurations = {
-                @ScriptConfiguration(
-                        name = "Method2",
-                        description = "Which operation would you like to perform?",
-                        defaultValue = "Cut",
-                        allowedValues = {
-                                @AllowedValue(optionName = "Cut", optionIcon = "1331"),
-                                @AllowedValue(optionName = "String", optionIcon = "99999")
-                        },
-                        optionType = OptionType.MULTI_SELECTION
-                )
-        }
-)
+
+@ScriptTabConfiguration.List({
+        @ScriptTabConfiguration(
+                name = "Tab 1",
+                configurations = {
+                        @ScriptConfiguration(
+                                name = "Method2",
+                                description = "Description for Option 1",
+                                defaultValue = "Value1",
+                                allowedValues = {
+                                        @AllowedValue(optionName = "Value1", optionIcon = "icon1"),
+                                        @AllowedValue(optionName = "Value2", optionIcon = "icon2")
+                                },
+                                optionType = OptionType.STRING
+                        )
+                }
+        ),
+        @ScriptTabConfiguration(
+                name = "Tab 2",
+                configurations = {
+                        @ScriptConfiguration(
+                                name = "Method3",
+                                description = "Description for Option 2",
+                                defaultValue = "ValueA",
+                                allowedValues = {
+                                        @AllowedValue(optionName = "ValueA", optionIcon = "iconA"),
+                                        @AllowedValue(optionName = "ValueB", optionIcon = "iconB")
+                                },
+                                optionType = OptionType.BOOLEAN
+                        )
+                }
+        )
+})
+
 @ScriptConfiguration.List(
         {
                 // Example config with a selection dropdown
@@ -52,7 +71,7 @@ import static helpers.Interfaces.Logger;
                         optionType = OptionType.STRING
                 ),
                 @ScriptConfiguration(
-                // Example config with a selection dropdown that includes item images (based on itemID)
+                        // Example config with a selection dropdown that includes item images (based on itemID)
                         name =  "Tier",
                         description = "Which tier of logs/bows would you like to use?",
                         defaultValue = "Maple logs",
@@ -118,6 +137,7 @@ public class SampleScript extends AbstractScript {
     Boolean useWDH;
     String hopProfile;
     String method2;
+    String method3;
 
     @Override
     public void onStart(){
@@ -127,6 +147,7 @@ public class SampleScript extends AbstractScript {
         selectedBankTab = configs.get("BankTab"); // Get the bankTab value from the last configuration option
         percentage = configs.get("Percentage");
         method2 = configs.get("Method2"); // Getting the tab configuration, just the same as regular ones.
+        method3 = configs.get("Method3");
 
         // Example to get worldhopper settings:
         hopProfile = configs.get("Use world hopper?");
