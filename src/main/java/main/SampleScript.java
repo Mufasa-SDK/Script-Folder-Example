@@ -5,6 +5,7 @@ import helpers.*;
 import helpers.annotations.AllowedValue;
 import helpers.annotations.ScriptConfiguration;
 import helpers.annotations.ScriptManifest;
+import helpers.annotations.ScriptTabConfiguration;
 import helpers.utils.OptionType;
 import utils.Task;
 
@@ -21,6 +22,21 @@ import static helpers.Interfaces.Logger;
         version = "1.01",
         guideLink = "",
         categories = {ScriptCategory.Fletching, ScriptCategory.Agility}
+)
+@ScriptTabConfiguration( // This is an example of doing a Tab configuration.
+        name = "Test",
+        configurations = {
+                @ScriptConfiguration(
+                        name = "Method2",
+                        description = "Which operation would you like to perform?",
+                        defaultValue = "Cut",
+                        allowedValues = {
+                                @AllowedValue(optionName = "Cut", optionIcon = "1331"),
+                                @AllowedValue(optionName = "String", optionIcon = "99999")
+                        },
+                        optionType = OptionType.MULTI_SELECTION
+                )
+        }
 )
 @ScriptConfiguration.List(
         {
@@ -101,6 +117,7 @@ public class SampleScript extends AbstractScript {
     Boolean hopEnabled;
     Boolean useWDH;
     String hopProfile;
+    String method2;
 
     @Override
     public void onStart(){
@@ -109,6 +126,7 @@ public class SampleScript extends AbstractScript {
         anotherConfig = configs.get("Tier"); // Example to get the second option
         selectedBankTab = configs.get("BankTab"); // Get the bankTab value from the last configuration option
         percentage = configs.get("Percentage");
+        method2 = configs.get("Method2"); // Getting the tab configuration, just the same as regular ones.
 
         // Example to get worldhopper settings:
         hopProfile = configs.get("Use world hopper?");
