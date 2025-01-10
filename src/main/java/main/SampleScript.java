@@ -96,6 +96,12 @@ import static helpers.Interfaces.Logger;
                         },
                         optionType = OptionType.STRING
                 ),
+                @ScriptConfiguration(
+                        name =  "TextArea example",
+                        description = "Would you like to make short or longbows?",
+                        defaultValue = "Enter script string",
+                        optionType = OptionType.TEXT_AREA
+                ),
                 // Example config with integer options (spinner)
                 @ScriptConfiguration(
                         name =  "Some integer option",
@@ -138,6 +144,7 @@ public class SampleScript extends AbstractScript {
     String hopProfile;
     String method2;
     String method3;
+    String textArea;
 
     @Override
     public void onStart(){
@@ -148,6 +155,7 @@ public class SampleScript extends AbstractScript {
         percentage = configs.get("Percentage");
         method2 = configs.get("Method2"); // Getting the tab configuration, just the same as regular ones.
         method3 = configs.get("Method3");
+        textArea = configs.get("TextArea example");
 
         // Example to get worldhopper settings:
         hopProfile = configs.get("Use world hopper?");
